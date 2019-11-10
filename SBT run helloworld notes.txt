@@ -1,0 +1,5 @@
+Add the build sbt file and the helloworld as in the example here
+https://hello-scala.com/802-scala-build-tool-sbt.html
+
+then just run
+sbt run
