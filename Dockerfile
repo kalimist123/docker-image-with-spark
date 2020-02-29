@@ -8,6 +8,7 @@ ENV SPARK_VERSION=2.4.1
 ENV HADOOP_VERSION=2.7
 
 RUN mkdir micktest
+RUN mkdir -p /tmp/spark-events
 #Run the following commands on my Linux machine
 #install the below packages on the ubuntu image
 RUN apt-get update -qq && \
@@ -19,5 +20,9 @@ RUN wget --no-verbose http://www.gtlib.gatech.edu/pub/apache/spark/spark-2.3.4/s
 RUN tar -xzf /spark-2.3.4-bin-hadoop2.7.tgz && \
   mv spark-2.3.4-bin-hadoop2.7 spark && \
   echo "export PATH=$PATH:/spark/bin" >> ~/.bashrc
+
+RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list 
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 
+RUN apt-get update -qq -y && apt-get install -qq -y sbt
 #Expose the UI Port 4040
 EXPOSE 4040

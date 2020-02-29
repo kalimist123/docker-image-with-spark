@@ -12,7 +12,8 @@ object WordCount extends App {
   // We'll run our project in local mode
   val conf = new SparkConf().
     setAppName("word-count").
-    setMaster("local[*]")
+    setMaster("local[*]").
+    set("spark.eventLog.enabled","true")
 
   // Here we initialize the context with the configuration above
   val sc = new SparkContext(conf)
