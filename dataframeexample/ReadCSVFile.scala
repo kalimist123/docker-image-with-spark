@@ -12,8 +12,8 @@ object ReadCSVFile {
      val empDF= sqlContext.read.format("csv")
   .option("header", "true")
   .option("inferSchema", "true")
-  .load("emp_data.csv")
-   empDF.show(3)
+  .load("*.csv")
+   empDF.show()
 
  
      
