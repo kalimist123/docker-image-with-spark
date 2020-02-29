@@ -1,3 +1,5 @@
+# to build image from dockerfile
 docker build -t spark-base-image-sbt d:/dockerimageforkicks/
+# to run the image. just swap the d:/dockerimageforkicks for some local drive location that docker can see
 docker run --rm -dit -p 14040:4040 --name spark-sbt -v d:/dockerimageforkicks:/micktest kali042/spark-base-image-sbt
 docker exec -it spark-sbt bin/bash
